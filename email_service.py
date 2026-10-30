@@ -28,10 +28,10 @@ def send_otp_email(email: str, code: str) -> None:
     message = EmailMessage()
     message["From"] = from_email
     message["To"] = email
-    message["Subject"] = "Seu código de verificação — Mage Cup"
+    message["Subject"] = "Seu código de verificação — Starlink Cadastro"
 
     text_body = (
-        "MAGE CUP\n\n"
+        "STARLINK CADASTRO\n\n"
         "Seu código de verificação é:\n\n"
         f"{code}\n\n"
         "Esse código expira em 10 minutos.\n\n"
@@ -43,7 +43,7 @@ def send_otp_email(email: str, code: str) -> None:
     <html lang="pt-BR">
       <body style="font-family:Arial,sans-serif;background:#f5f5f5;padding:32px;">
         <div style="max-width:560px;margin:0 auto;background:#ffffff;padding:32px;border-radius:12px;">
-          <h1 style="margin-top:0;">MAGE CUP</h1>
+          <h1 style="margin-top:0;">STARLINK CADASTRO</h1>
           <p>Seu código de verificação é:</p>
           <div style="font-size:36px;font-weight:700;letter-spacing:8px;">{code}</div>
           <p>Esse código expira em 10 minutos.</p>

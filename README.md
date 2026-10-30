@@ -1,6 +1,6 @@
-# Mage Cup Email Bridge — Python + Vercel
+# Starlink Cadastro Email Bridge — Python + Vercel
 
-API serverless para o Mage Cup enviar e verificar códigos OTP por e-mail sem colocar a senha do serviço de e-mail dentro da Godot.
+API serverless para o Starlink Cadastro enviar e verificar códigos OTP por e-mail sem colocar a senha do serviço de e-mail dentro da Godot.
 
 A versão atual **não usa Resend**. Ela usa Python + SMTP. Isso permite usar um provedor SMTP que aceite envio para os jogadores. O exemplo do `.env.example` usa Gmail SMTP.
 
@@ -31,7 +31,7 @@ Godot
 ## Estrutura
 
 ```text
-magecup-email-bridge/
+starlink-cadastro-email-bridge/
 ├── api/
 │   ├── index.py
 │   ├── email_service.py
@@ -66,7 +66,7 @@ SMTP_PORT=465
 SMTP_SECURITY=ssl
 SMTP_USER=seuemail@gmail.com
 SMTP_PASSWORD=senha de app
-FROM_EMAIL=Mage Cup <seuemail@gmail.com>
+FROM_EMAIL=Starlink Cadastro <seuemail@gmail.com>
 OTP_SECRET=um-segredo-grande-e-aleatorio
 OTP_TTL_SECONDS=600
 ```
@@ -84,7 +84,7 @@ Depois de extrair o projeto:
 ```bash
 git init
 git add .
-git commit -m "Mage Cup Email Bridge Python"
+git commit -m "Starlink Cadastro Email Bridge Python"
 git branch -M main
 git remote add origin URL_DO_REPOSITORIO
 git push -u origin main
@@ -113,7 +113,7 @@ Resposta:
 ```json
 {
   "success": true,
-  "service": "Mage Cup Email Bridge",
+  "service": "Starlink Cadastro Email Bridge",
   "status": "online"
 }
 ```
@@ -147,7 +147,7 @@ O código nunca é retornado.
 O endpoint `POST /api/send-message` recebe o texto escrito pelo jogador e envia um e-mail para o endereço fixo configurado no servidor (`cauanexel633@gmail.com`). O cliente não pode definir o destinatário.
 
 ```http
-POST https://mage-cup-mdcb.vercel.app/api/send-message
+POST https://starlink-cadastro.vercel.app/api/send-message
 Content-Type: application/json
 ```
 
@@ -173,7 +173,7 @@ O texto é enviado como texto simples, com limite de 5.000 caracteres. Há um li
 Exemplo Godot 4 (troque `$LineEdit` pelo caminho do seu campo de texto):
 
 ```gdscript
-const EMAIL_BRIDGE_URL := "https://mage-cup-mdcb.vercel.app"
+const EMAIL_BRIDGE_URL := "https://starlink-cadastro.vercel.app"
 
 func enviar_mensagem() -> void:
     var texto: String = $LineEdit.text.strip_edges()

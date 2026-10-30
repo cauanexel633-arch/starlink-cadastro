@@ -1,4 +1,4 @@
-"""Mage Cup Email Bridge - FastAPI/Vercel."""
+"""Starlink Cadastro Email Bridge - FastAPI/Vercel."""
 
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ from api.otp_store import (
 )
 
 app = FastAPI(
-    title="Mage Cup Email Bridge",
+    title="Starlink Cadastro Email Bridge",
     docs_url=None,
     redoc_url=None,
 )
@@ -291,7 +291,7 @@ async def root() -> JSONResponse:
     return JSONResponse(
         content={
             "success": True,
-            "service": "Mage Cup Email Bridge",
+            "service": "Starlink Cadastro Email Bridge",
             "status": "online",
             "endpoints": [
                 "/api/health",
@@ -332,7 +332,7 @@ async def health(
     return JSONResponse(
         content={
             "success": True,
-            "service": "Mage Cup Email Bridge",
+            "service": "Starlink Cadastro Email Bridge",
             "status": "online",
         }
     )
@@ -575,7 +575,7 @@ async def _send_message(request: Request) -> JSONResponse:
         return error("Não foi possível enviar a mensagem por e-mail.", 502)
 
     register_send(ip_key)
-    print(f"Mensagem do formulário do Mage Cup enviada. Tamanho: {len(message_text)} caracteres.")
+    print(f"Mensagem do formulário do Starlink Cadastro enviada. Tamanho: {len(message_text)} caracteres.")
 
     return JSONResponse(
         content={
